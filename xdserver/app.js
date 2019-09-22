@@ -140,6 +140,39 @@ server.get("/md",(req,res)=>{
     })
 })
 
+// 新品上市
+server.get("/xinping",(req,res)=>{
+    var pno=req.query.pno;
+    var ps=req.query.pageSize;
+
+   if(!pno){pno=1;if(!ps){ps=5}}
+//    创建sql语句
+var sql="SELECT id,img_url,title,price";
+sql +="FROM xinpinsha";
+sql +="LIMIT ?,?";
+var offset=(pno-1)*ps;
+  ps=parseInt(ps);
+//   发送sql语句 
+pool.query(sql,[offset,ps],(err,result)=>{
+    if(err) throw err;
+    res.send({
+        code:1,msg:"获取成功",
+        data:result
+
+    })
+})
+})
+
+
+
+
+
+
+
+
+
+
+
 // 分类后的商品列表
 server.get("/prolist",(req,res)=>{
     var pnopro=req.query.pno;

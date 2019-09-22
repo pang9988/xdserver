@@ -113,6 +113,21 @@ INSERT INTO new_list VALUES(null,'Apple iPhone熊猫毛绒抱枕手机','./img/n
 INSERT INTO new_list VALUES(null,'Apple iPhone熊猫毛绒抱枕手机','./img/newlist/8.jpg','3999');
 INSERT INTO new_list VALUES(null,'Apple iPhone熊猫毛绒抱枕手机','./img/newlist/9.jpg','199')
 
+
+###/*新品上市*/
+CREATE TABLE xinpinsha(
+id INT PRIMARY KEY AUTO_INCREMENT,
+title VARCHAR(40),
+img_url VARCHAR(90),
+price DECIMAL(10,2)
+);
+INSERT INTO xinpinsha VALUES(null,'Apple iPhone11耳机','./img/xinpinsha/5.jpg','6199.52');
+INSERT INTO xinpinsha VALUES(null,'Apple iPhone12手机','./img/xinpinsha/6.jpg','3199.41');
+INSERT INTO xinpinsha VALUES(null,'Apple 那良村毛绒抱枕手机','./img/xinpinsha/7.jpg','3109.85');
+INSERT INTO xinpinsha VALUES(null,'Apple iPhone廉江红橙','./img/xinpinsha/8.jpg','3999.88');
+INSERT INTO xinpinsha VALUES(null,'Apple iPhone廉江樱花公园','./img/xinpinsha/9.jpg','199.66')
+
+
 ###/*人气推荐*/
 CREATE TABLE ren_qi(
 id INT PRIMARY KEY AUTO_INCREMENT,
@@ -125,6 +140,8 @@ INSERT INTO ren_qi VALUES(null,'Apple iPhone90后毛绒抱枕手机','./img/renq
 INSERT INTO ren_qi VALUES(null,'Apple iPhone那良村毛绒抱枕手机','./img/renqi/7.jpg','3109.85');
 INSERT INTO ren_qi VALUES(null,'Apple iPhone廉江电饭煲','./img/renqi/8.jpg','3999.88');
 INSERT INTO ren_qi VALUES(null,'Apple iPhone廉江热水库','./img/renqi/9.jpg','199.66')
+
+
 
 
 ##/*商品列表*/
