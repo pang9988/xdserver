@@ -11,4 +11,4 @@ var pool=mysql.createPool({
  //冻结连接池 不能修改
  Object.freeze(pool);
  //导出连接池对象
-   module.exports=pool;
+  //  module.exports=pool;

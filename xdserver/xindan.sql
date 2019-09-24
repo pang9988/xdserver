@@ -115,17 +115,61 @@ INSERT INTO new_list VALUES(null,'Apple iPhone熊猫毛绒抱枕手机','./img/n
 
 
 ###/*新品上市*/
-CREATE TABLE xinpinsha(
+##CREATE TABLE xinpinshashi(
+##id INT PRIMARY KEY AUTO_INCREMENT,
+##laptop_id INT,              #商品编号
+##title VARCHAR(40),
+##img_url VARCHAR(90),
+##img_lo  VARCHAR(90),
+##img_big  VARCHAR(90),
+##price DECIMAL(10,2)
+##);
+##INSERT INTO xinpinshashi VALUES(null,1,'Apple iPhone11耳机','./img/xinpinsha/11.jpg','./img/xinpinsha_lo/11.jpg','./img/xinpinsha_big/11.jpg','6199.52');
+##INSERT INTO xinpinshashi VALUES(null,1,'Apple iPhone11耳机','./img/xinpinsha/11.jpg','./img/xinpinsha_lo/12.jpg','./img/xinpinsha_big/12.jpg','6199.52');
+##INSERT INTO xinpinshashi VALUES(null,1,'Apple iPhone11耳机','./img/xinpinsha/11.jpg','./img/xinpinsha_lo/13.jpg','./img/xinpinsha_big/13.jpg','6199.52');
+##INSERT INTO xinpinshashi VALUES(null,1,'Apple iPhone11耳机','./img/xinpinsha/11.jpg','./img/xinpinsha_lo/14.jpg','./img/xinpinsha_big/14.jpg','6199.52');
+##INSERT INTO xinpinshashi VALUES(null,2,'Apple 那良村毛绒抱枕手机','./img/xinpinsha/12.jpg','./img/xinpinsha_lo/21.jpg','./img/xinpinsha_big/21.jpg','3109.85');
+##INSERT INTO xinpinshashi VALUES(null,2,'Apple 那良村毛绒抱枕手机','./img/xinpinsha/12.jpg','./img/xinpinsha_lo/22.jpg','./img/xinpinsha_big/22.jpg','3109.85');
+##INSERT INTO xinpinshashi VALUES(null,2,'Apple 那良村毛绒抱枕手机','./img/xinpinsha/12.jpg','./img/xinpinsha_lo/23.jpg','./img/xinpinsha_big/23.jpg','3109.82');
+##INSERT INTO xinpinshashi VALUES(null,2,'Apple 那良村毛绒抱枕手机','./img/xinpinsha/12.jpg','./img/xinpinsha_lo/24.jpg','./img/xinpinsha_big/24.jpg','6199.52');
+##INSERT INTO xinpinshashi VALUES(null,3,'Apple iPhone廉江红橙','./img/xinpinsha/13.jpg','./img/xinpinsha_lo/31.jpg','./img/xinpinsha_big/31.jpg','6199.52');
+##INSERT INTO xinpinshashi VALUES(null,3,'Apple iPhone廉江红橙','./img/xinpinsha/13.jpg','./img/xinpinsha_lo/32.jpg','./img/xinpinsha_big/32.jpg','699.62');
+##INSERT INTO xinpinshashi VALUES(null,3,'Apple iPhone廉江红橙','./img/xinpinsha/13.jpg','./img/xinpinsha_lo/33.jpg','./img/xinpinsha_big/33.jpg','699.52');
+##INSERT INTO xinpinshashi VALUES(null,3,'Apple iPhone廉江红橙','./img/xinpinsha/13.jpg','./img/xinpinsha_lo/34.jpg','./img/xinpinsha_big/34.jpg','699.52');
+##INSERT INTO xinpinshashi VALUES(null,4,'Apple iPhone廉江樱花公园','./img/xinpinsha/14.jpg','./img/xinpinsha_lo/41.jpg','./img/xinpinsha_big/41.jpg','6129.52');
+##INSERT INTO xinpinshashi VALUES(null,4,'Apple iPhone廉江樱花公园','./img/xinpinsha/14.jpg','./img/xinpinsha_lo/42.jpg','./img/xinpinsha_big/42.jpg','619.52');
+##INSERT INTO xinpinshashi VALUES(null,4,'Apple iPhone廉江樱花公园','./img/xinpinsha/14.jpg','./img/xinpinsha_lo/43.jpg','./img/xinpinsha_big/43.jpg','619.52');
+##INSERT INTO xinpinshashi VALUES(null,4,'Apple iPhone廉江樱花公园','./img/xinpinsha/14.jpg','./img/xinpinsha_lo/44.jpg','./img/xinpinsha_big/44.jpg','6169.52');
+###/*新品上市*/
+CREATE TABLE xinpinshashi(
 id INT PRIMARY KEY AUTO_INCREMENT,
+laptop_id INT,              #商品编号
 title VARCHAR(40),
 img_url VARCHAR(90),
+img_lo  VARCHAR(90),
+img_big  VARCHAR(90),
 price DECIMAL(10,2)
 );
-INSERT INTO xinpinsha VALUES(null,'Apple iPhone11耳机','./img/xinpinsha/5.jpg','6199.52');
-INSERT INTO xinpinsha VALUES(null,'Apple iPhone12手机','./img/xinpinsha/6.jpg','3199.41');
-INSERT INTO xinpinsha VALUES(null,'Apple 那良村毛绒抱枕手机','./img/xinpinsha/7.jpg','3109.85');
-INSERT INTO xinpinsha VALUES(null,'Apple iPhone廉江红橙','./img/xinpinsha/8.jpg','3999.88');
-INSERT INTO xinpinsha VALUES(null,'Apple iPhone廉江樱花公园','./img/xinpinsha/9.jpg','199.66')
+INSERT INTO xinpinshashi VALUES(null,1,'Apple iPhone11耳机','./img/xinpinsha/11.jpg','./img/xinpinsha_lo/14.jpg','./img/xinpinsha_big/14.jpg','6199.52');
+INSERT INTO xinpinshashi VALUES(null,2,'Apple 那良村毛绒抱枕手机','./img/xinpinsha/12.jpg','./img/xinpinsha_lo/21.jpg','./img/xinpinsha_big/21.jpg','3109.85');
+INSERT INTO xinpinshashi VALUES(null,3,'Apple iPhone廉江红橙','./img/xinpinsha/13.jpg','./img/xinpinsha_lo/31.jpg','./img/xinpinsha_big/31.jpg','6199.52');
+INSERT INTO xinpinshashi VALUES(null,4,'Apple iPhone廉江樱花公园','./img/xinpinsha/14.jpg','./img/xinpinsha_lo/41.jpg','./img/xinpinsha_big/41.jpg','6129.52');
+
+
+
+#INSERT INTO xinpinshashi VALUES(null,1,'Apple iPhone11耳机','./img/xinpinsha/11.jpg','./img/xinpinsha_lo/11.jpg','./img/xinpinsha_big/11.jpg','6199.52');
+#INSERT INTO xinpinshashi VALUES(null,1,'Apple iPhone11耳机','./img/xinpinsha/11.jpg','./img/xinpinsha_lo/12.jpg','./img/xinpinsha_big/12.jpg','6199.52');
+#INSERT INTO xinpinshashi VALUES(null,1,'Apple iPhone11耳机','./img/xinpinsha/11.jpg','./img/xinpinsha_lo/13.jpg','./img/xinpinsha_big/13.jpg','6199.52');
+
+#INSERT INTO xinpinshashi VALUES(null,2,'Apple 那良村毛绒抱枕手机','./img/xinpinsha/12.jpg','./img/xinpinsha_lo/22.jpg','./img/xinpinsha_big/22.jpg','3109.85');
+#INSERT INTO xinpinshashi VALUES(null,2,'Apple 那良村毛绒抱枕手机','./img/xinpinsha/12.jpg','./img/xinpinsha_lo/23.jpg','./img/xinpinsha_big/23.jpg','3109.82');
+#INSERT INTO xinpinshashi VALUES(null,2,'Apple 那良村毛绒抱枕手机','./img/xinpinsha/12.jpg','./img/xinpinsha_lo/24.jpg','./img/xinpinsha_big/24.jpg','6199.52');
+#INSERT INTO xinpinshashi VALUES(null,3,'Apple iPhone廉江红橙','./img/xinpinsha/13.jpg','./img/xinpinsha_lo/32.jpg','./img/xinpinsha_big/32.jpg','699.62');
+#INSERT INTO xinpinshashi VALUES(null,3,'Apple iPhone廉江红橙','./img/xinpinsha/13.jpg','./img/xinpinsha_lo/33.jpg','./img/xinpinsha_big/33.jpg','699.52');
+#INSERT INTO xinpinshashi VALUES(null,3,'Apple iPhone廉江红橙','./img/xinpinsha/13.jpg','./img/xinpinsha_lo/34.jpg','./img/xinpinsha_big/34.jpg','699.52');
+#INSERT INTO xinpinshashi VALUES(null,4,'Apple iPhone廉江樱花公园','./img/xinpinsha/14.jpg','./img/xinpinsha_lo/42.jpg','./img/xinpinsha_big/42.jpg','619.52');
+#INSERT INTO xinpinshashi VALUES(null,4,'Apple iPhone廉江樱花公园','./img/xinpinsha/14.jpg','./img/xinpinsha_lo/43.jpg','./img/xinpinsha_big/43.jpg','619.52');
+#INSERT INTO xinpinshashi VALUES(null,4,'Apple iPhone廉江樱花公园','./img/xinpinsha/14.jpg','./img/xinpinsha_lo/44.jpg','./img/xinpinsha_big/44.jpg','6169.52');
 
 
 ###/*人气推荐*/
