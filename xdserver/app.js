@@ -166,15 +166,6 @@ server.get("/xinpin", (req, res) => {
     })
 })
 
-
-
-
-
-
-
-
-
-
 // 分类后的商品列表
 server.get("/prolist", (req, res) => {
     var pnopro = req.query.pno;
@@ -201,7 +192,7 @@ server.get("/prolist", (req, res) => {
         })
     })
 })
-
+//
 server.get("/detail",(req,res)=>{
     var id=req.query.id;
     var sql="select * from xinpinshashi  where id=?"
@@ -210,7 +201,14 @@ server.get("/detail",(req,res)=>{
         res.send({code:1,msg:"查询成功",data:result})
     })
 })
-
+// 
+server.get("/hodeail",(req,res)=>{
+    var sql="select id,title,price,img_url from xinpinshashi ";
+    pool.query(sql,(err,result)=>{
+        if(err)throw err;
+        res.send({code:1,msg:"查询成功",data:result})
+    })
+})
 
 
 
