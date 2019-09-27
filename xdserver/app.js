@@ -23,7 +23,7 @@ server.listen(8081);
 
 //5.2每请求是否验证true
 server.use(cors({
-    origin: ["http://127.0.0.1:5555", "http://localhost:5555", "http://127.0.0.1:5557", "http://127.0.0.1:5558"],
+    origin: ["http://127.0.0.1:5555", "http://localhost:5555", "http://127.0.0.1:5556", "http://127.0.0.1:5557", "http://127.0.0.1:5558"],
     credentials: true
 }))
 
@@ -202,7 +202,7 @@ server.get("/detail",(req,res)=>{
     })
 })
 // 
-server.get("/hodeail",(req,res)=>{
+server.get("/deail2",(req,res)=>{
     var sql="select id,title,price,img_url from xinpinshashi ";
     pool.query(sql,(err,result)=>{
         if(err)throw err;
