@@ -185,3 +185,22 @@ INSERT INTO shangpin_list VALUES(null,'Apple iPhone熊猫耳机','输入蛋券sw
 INSERT INTO shangpin_list VALUES(null,'Apple Apple iPhone廉江电饭煲','输入蛋券sw07,满1000-30元','./img/productlist/12.jpg','61449.12');
 INSERT INTO shangpin_list VALUES(null,'Apple iPhone熊猫耳机','输入蛋券sw07,满1000-30元','./img/productlist/13.jpg','5199.82');
 INSERT INTO shangpin_list VALUES(null,'Apple iPhone熊猫耳机','输入蛋券sw07,满1500-30元','./img/productlist/14.jpg','6889.99');
+
+
+
+
+#创建表 购物车
+#DECIMAL 高精度浮点数 2.00-1.99=0.01
+#INT     199分 /100  无误差
+#lid 商品编号/price 价格/count数量
+#title 商品名称/uid用户编号
+#img_url  商品图片
+CREATE TABLE xinpin_cart(
+  id     INT PRIMARY KEY AUTO_INCREMENT,
+  lid    INT,
+  price  DECIMAL(10,2),
+  count  INT,
+  img_url VARCHAR(255),
+  title  VARCHAR(255),
+  uid    INT
+);

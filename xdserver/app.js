@@ -209,7 +209,52 @@ server.get("/deail2",(req,res)=>{
         res.send({code:1,msg:"查询成功",data:result})
     })
 })
+// 购物车
+server.get("/addcart",(req,res)=>{
+    var uid=req.session.uid;
+    if(!uid){
+        res.send({code:-1,msg:"请登录"});
+        return;
+    }
+    // 获取客户端数据
+    // var id=req.query.id;
+    var lid=req.query.lid;
+    var price=req.query.price;
+    var title=req.query.title;
+    // var imgurl=req.query.img_big;
+    // console.log(id)
+    console.log(lid)
+    console.log(price)
+    console.log(title)
+    // console.log(imgurl)
 
+//    创建查询sql:当前用户是否购买过此商品
+var sql="select id from xinpin_cart";
+sql+="where uid=? and lid=?";
+
+pool.query(sql,[uid,lid],(err,result)=>{
+    if(err) throw err;
+
+    if (result.length == 0) {
+        var sql = `INSERT INTO xinpin_cart VALUES(null,${lid},${price},1,${img_url},'${title}',${uid})`;
+    } else {
+        var sql = `UPDATE xinpin_cart SET count=count+1 WHERE uid=${uid} AND lid=${lid}`;
+    }
+    //7.执行sql获取返回结果
+    pool.query(sql, (err, result) => {
+        if (err) throw err;
+        //8.
+        if (result.affectedRows > 0) {
+            res.send({ code: 1, msg: "商品添加成功" });
+            console.log(result);
+        } else {
+            res.send({ code: -2, msg: "添加失败" })
+        }
+    })
+
+})
+
+})
 
 
 
