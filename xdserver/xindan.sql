@@ -8,76 +8,44 @@ CREATE DATABASE xindan CHARSET=UTF8;
 USE xindan;
 
 #创建表xd_login
+#Drop table IF EXISTS xd_login
 CREATE TABLE xd_login(
 id INT PRIMARY KEY AUTO_INCREMENT,
 uname VARCHAR(50),
 upwd VARCHAR(32),
 email VARCHAR(64),
-phone VARCHAR(16),
+phone VARCHAR(16)
 );
 #添加测试数据 
 INSERT INTO xd_login VALUES(null,'pang',md5('123'),'pang@qq.com','13812345678');
 INSERT INTO xd_login VALUES(null,'tom',md5('123'),'tom@qq.com','13888888888');
 
-
-###功能商品添加
-#功能三:向商品表中添加一列 img_url
-USE xindan;
-ALTER TABLE xd_laptop ADD img_url VARCHAR(255);
-#更新商品表图片 01.jpg 02.jpg
-UPDATE xd_laptop SET img_url='lvbo1.jpg'
-WHERE lid = 1;
-UPDATE xd_laptop SET img_url='lvbo2.jpg'
-WHERE lid = 2;
-UPDATE xd_laptop SET img_url='lvbo3.jpg'
-WHERE lid = 3;
-
-
-#创建表 购物车
-#DECIMAL 高精度浮点数 2.00-1.99=0.01
-#INT 199分 /100 无误差
-#lid 商品编号/price 价格/count数量
-#lname 商品名称/uid用户编号
-CREATE TABLE xd_cart(
+########################################
+#创建表xd_login
+#Drop table IF EXISTS xd_laptop
+CREATE TABLE xd_laptop(
 id INT PRIMARY KEY AUTO_INCREMENT,
 lid INT,
-price DECIMAL(10,2),
-count INT,
-lname VARCHAR(255),
-uid INT
+img_url VARCHAR(128)
 );
+INSERT INTO xd_laptop VALUES(null,1,'lvbo1.jpg');
+INSERT INTO xd_laptop VALUES(null,2,'lvbo2.jpg');
+INSERT INTO xd_laptop VALUES(null,3,'lvbo3.jpg');
 
 
 ###功能商品添加
 #功能三:向商品表中添加一列 img_url
-USE xindan;
-ALTER TABLE xd_laptop ADD img_url VARCHAR(255);
+#ALTER TABLE xd_laptop ADD img_url VARCHAR(255);
 #更新商品表图片 01.jpg 02.jpg
-UPDATE xd_laptop SET img_url='lvbo1.jpg'
-WHERE lid = 1;
-UPDATE xd_laptop SET img_url='lvbo2.jpg'
-WHERE lid = 2;
-UPDATE xd_laptop SET img_url='lvbo3.jpg'
-WHERE lid = 3;
-
-
-#创建表 购物车
-#DECIMAL 高精度浮点数 2.00-1.99=0.01
-#INT     199分 /100  无误差
-#lid 商品编号/price 价格/count数量
-#lname 商品名称/uid用户编号
-CREATE TABLE xd_cart(
-  id     INT PRIMARY KEY AUTO_INCREMENT,
-  lid    INT,
-  price  DECIMAL(10,2),
-  count  INT,
-  lname  VARCHAR(255),
-  uid    INT
-);
-
+#UPDATE xd_laptop SET img_url='lvbo1.jpg'
+#WHERE lid = 1;
+#UPDATE xd_laptop SET img_url='lvbo2.jpg'
+#WHERE lid = 2;
+#UPDATE xd_laptop SET img_url='lvbo3.jpg'
+#WHERE lid = 3;
 
 #轮播图片
-DROP TABLE IF EXISTS `xd_index_carousel`;
+#DROP TABLE IF EXISTS `xd_index_carousel`;
 CREATE TABLE `xd_index_carousel` (
   `cid` int(11) NOT NULL auto_increment,
   `img` varchar(128) default NULL,
@@ -95,6 +63,7 @@ INSERT INTO `xd_index_carousel` VALUES ('3', 'lvbo/lvbo3.png', '轮播广告商�
 
 
 ###/*为你推荐*/
+#Drop table IF EXISTS new_list
 CREATE TABLE new_list(
 id INT PRIMARY KEY AUTO_INCREMENT,
 title VARCHAR(40),
@@ -111,18 +80,19 @@ INSERT INTO new_list VALUES(null,'Apple iPhone熊猫毛绒抱枕手机','./img/n
 INSERT INTO new_list VALUES(null,'Apple iPhone熊猫毛绒抱枕手机','./img/newlist/6.jpg','3199');
 INSERT INTO new_list VALUES(null,'Apple iPhone熊猫毛绒抱枕手机','./img/newlist/7.jpg','3109');
 INSERT INTO new_list VALUES(null,'Apple iPhone熊猫毛绒抱枕手机','./img/newlist/8.jpg','3999');
-INSERT INTO new_list VALUES(null,'Apple iPhone熊猫毛绒抱枕手机','./img/newlist/9.jpg','199')
+INSERT INTO new_list VALUES(null,'Apple iPhone熊猫毛绒抱枕手机','./img/newlist/9.jpg','199');
 
 
 
 ###/*新品上市*/
+#Drop table IF EXISTS xinpinshashi
 CREATE TABLE xinpinshashi(
 id INT PRIMARY KEY AUTO_INCREMENT,
-laptop_id INT,              #商品编号
+lid INT,              #商品编号
 title VARCHAR(40),
-img_url VARCHAR(90),
-img_lo  VARCHAR(90),
-img_big  VARCHAR(90),
+img_url VARCHAR(128),
+img_lo  VARCHAR(128),
+img_big  VARCHAR(128),
 price DECIMAL(10,2)
 );
 INSERT INTO xinpinshashi VALUES(null,1,'Apple iPhone11耳机','./img/xinpinsha/11.jpg','./img/xinpinsha_lo/14.jpg','./img/xinpinsha_big/14.jpg','6199.52');
@@ -130,24 +100,25 @@ INSERT INTO xinpinshashi VALUES(null,2,'Apple 那良村毛绒抱枕手机','./im
 INSERT INTO xinpinshashi VALUES(null,3,'Apple iPhone廉江红橙','./img/xinpinsha/13.jpg','./img/xinpinsha_lo/31.jpg','./img/xinpinsha_big/31.jpg','6199.52');
 INSERT INTO xinpinshashi VALUES(null,4,'Apple iPhone廉江樱花公园','./img/xinpinsha/14.jpg','./img/xinpinsha_lo/41.jpg','./img/xinpinsha_big/41.jpg','6129.52');
 
-INSERT INTO xinpinshashi VALUES(null,5,'Apple iPhone11耳机','./img/xinpinsha/11.jpg','./img/xinpinsha_lo/14.jpg','./img/xinpinsha_big/14.jpg','6199.52');
+#INSERT INTO xinpinshashi VALUES(null,5,'Apple iPhone11耳机','./img/xinpinsha/11.jpg','./img/xinpinsha_lo/14.jpg','./img/xinpinsha_big/14.jpg','6199.52');
 
-INSERT INTO xinpinshashi VALUES(null,6,'Apple 那良村毛绒抱枕手机','./img/xinpinsha/12.jpg','./img/xinpinsha_lo/21.jpg','./img/xinpinsha_big/21.jpg','3109.85');
-INSERT INTO xinpinshashi VALUES(null,7,'Apple iPhone廉江红橙','./img/xinpinsha/13.jpg','./img/xinpinsha_lo/31.jpg','./img/xinpinsha_big/31.jpg','6199.52');
-INSERT INTO xinpinshashi VALUES(null,8,'Apple iPhone廉江樱花公园','./img/xinpinsha/14.jpg','./img/xinpinsha_lo/41.jpg','./img/xinpinsha_big/41.jpg','6129.52');
+#INSERT INTO xinpinshashi VALUES(null,6,'Apple 那良村毛绒抱枕手机','./img/xinpinsha/12.jpg','./img/xinpinsha_lo/21.jpg','./img/xinpinsha_big/21.jpg','3109.85');
+#INSERT INTO xinpinshashi VALUES(null,7,'Apple iPhone廉江红橙','./img/xinpinsha/13.jpg','./img/xinpinsha_lo/31.jpg','./img/xinpinsha_big/31.jpg','6199.52');
+#INSERT INTO xinpinshashi VALUES(null,8,'Apple iPhone廉江樱花公园','./img/xinpinsha/14.jpg','./img/xinpinsha_lo/41.jpg','./img/xinpinsha_big/41.jpg','6129.52');
 
-INSERT INTO xinpinshashi VALUES(null,9,'Apple iPhone11耳机','./img/xinpinsha/11.jpg','./img/xinpinsha_lo/14.jpg','./img/xinpinsha_big/14.jpg','6199.52');
-INSERT INTO xinpinshashi VALUES(null,10,'Apple 那良村毛绒抱枕手机','./img/xinpinsha/12.jpg','./img/xinpinsha_lo/21.jpg','./img/xinpinsha_big/21.jpg','3109.85');
-INSERT INTO xinpinshashi VALUES(null,11,'Apple iPhone廉江红橙','./img/xinpinsha/13.jpg','./img/xinpinsha_lo/31.jpg','./img/xinpinsha_big/31.jpg','6199.52');
-INSERT INTO xinpinshashi VALUES(null,12,'Apple iPhone廉江樱花公园','./img/xinpinsha/14.jpg','./img/xinpinsha_lo/41.jpg','./img/xinpinsha_big/41.jpg','6129.52');
-INSERT INTO xinpinshashi VALUES(null,13,'Apple iPhone11耳机','./img/xinpinsha/11.jpg','./img/xinpinsha_lo/14.jpg','./img/xinpinsha_big/14.jpg','6199.52');
-INSERT INTO xinpinshashi VALUES(null,14,'Apple 那良村毛绒抱枕手机','./img/xinpinsha/12.jpg','./img/xinpinsha_lo/21.jpg','./img/xinpinsha_big/21.jpg','3109.85');
-INSERT INTO xinpinshashi VALUES(null,15,'Apple iPhone廉江红橙','./img/xinpinsha/13.jpg','./img/xinpinsha_lo/31.jpg','./img/xinpinsha_big/31.jpg','6199.52');
-INSERT INTO xinpinshashi VALUES(null,16,'Apple iPhone廉江樱花公园','./img/xinpinsha/14.jpg','./img/xinpinsha_lo/41.jpg','./img/xinpinsha_big/41.jpg','6129.52');
+#INSERT INTO xinpinshashi VALUES(null,9,'Apple iPhone11耳机','./img/xinpinsha/11.jpg','./img/xinpinsha_lo/14.jpg','./img/xinpinsha_big/14.jpg','6199.52');
+#INSERT INTO xinpinshashi VALUES(null,10,'Apple 那良村毛绒抱枕手机','./img/xinpinsha/12.jpg','./img/xinpinsha_lo/21.jpg','./img/xinpinsha_big/21.jpg','3109.85');
+#INSERT INTO xinpinshashi VALUES(null,11,'Apple iPhone廉江红橙','./img/xinpinsha/13.jpg','./img/xinpinsha_lo/31.jpg','./img/xinpinsha_big/31.jpg','6199.52');
+#INSERT INTO xinpinshashi VALUES(null,12,'Apple iPhone廉江樱花公园','./img/xinpinsha/14.jpg','./img/xinpinsha_lo/41.jpg','./img/xinpinsha_big/41.jpg','6129.52');
+#INSERT INTO xinpinshashi VALUES(null,13,'Apple iPhone11耳机','./img/xinpinsha/11.jpg','./img/xinpinsha_lo/14.jpg','./img/xinpinsha_big/14.jpg','6199.52');
+#INSERT INTO xinpinshashi VALUES(null,14,'Apple 那良村毛绒抱枕手机','./img/xinpinsha/12.jpg','./img/xinpinsha_lo/21.jpg','./img/xinpinsha_big/21.jpg','3109.85');
+#INSERT INTO xinpinshashi VALUES(null,15,'Apple iPhone廉江红橙','./img/xinpinsha/13.jpg','./img/xinpinsha_lo/31.jpg','./img/xinpinsha_big/31.jpg','6199.52');
+#INSERT INTO xinpinshashi VALUES(null,16,'Apple iPhone廉江樱花公园','./img/xinpinsha/14.jpg','./img/xinpinsha_lo/41.jpg','./img/xinpinsha_big/41.jpg','6129.52');
 
 
 
 ###/*人气推荐*/
+#Drop table IF EXISTS ren_qi
 CREATE TABLE ren_qi(
 id INT PRIMARY KEY AUTO_INCREMENT,
 title VARCHAR(40),
@@ -158,12 +129,13 @@ INSERT INTO ren_qi VALUES(null,'Apple iPhone熊猫耳机','./img/renqi/5.jpg','6
 INSERT INTO ren_qi VALUES(null,'Apple iPhone90后毛绒抱枕手机','./img/renqi/6.jpg','3199.41');
 INSERT INTO ren_qi VALUES(null,'Apple iPhone那良村毛绒抱枕手机','./img/renqi/7.jpg','3109.85');
 INSERT INTO ren_qi VALUES(null,'Apple iPhone廉江电饭煲','./img/renqi/8.jpg','3999.88');
-INSERT INTO ren_qi VALUES(null,'Apple iPhone廉江热水库','./img/renqi/9.jpg','199.66')
+INSERT INTO ren_qi VALUES(null,'Apple iPhone廉江热水库','./img/renqi/9.jpg','199.66');
 
 
 
 
 ##/*商品列表*/
+#Drop table IF EXISTS shangpin_list
 CREATE TABLE shangpin_list(
    id INT PRIMARY KEY AUTO_INCREMENT,
    title VARCHAR(40),
@@ -195,12 +167,13 @@ INSERT INTO shangpin_list VALUES(null,'Apple iPhone熊猫耳机','输入蛋券sw
 #lid 商品编号/price 价格/count数量
 #title 商品名称/uid用户编号
 #img_url  商品图片
+#Drop table IF EXISTS xinpin_cart
 CREATE TABLE xinpin_cart(
   id     INT PRIMARY KEY AUTO_INCREMENT,
   lid    INT,
   price  DECIMAL(10,2),
   count  INT,
-  img_url VARCHAR(255),
   title  VARCHAR(255),
-  uid    INT
+  uid    INT,
+  imgurl VARCHAR(128)
 );
