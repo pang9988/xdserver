@@ -43,7 +43,7 @@ server.get("/Email", (req, res) => {
     //接收页面传递数据,用户名和密码
     var e = req.query.email;
     var u = req.query.upwd;
-    console.log(e, u);
+    // console.log(e, u);
     //创建sql
     var sql = "SELECT id FROM xd_login WHERE email =? AND upwd =md5(?)";
     //执行sql语句并且获取返回结果
@@ -51,7 +51,7 @@ server.get("/Email", (req, res) => {
         //判断登录是否成功
         if (err) throw err;
         //将结果返回网页
-        console.log(result.length)
+        // console.log(result.length)
         if (result.length == 0) {
             res.send({ code: -1, msg: "用户名或密码有误" })
         } else {
@@ -90,7 +90,7 @@ server.get("/Login", (req, res) => {
 server.get("/cao", (req, res) => {
     var pno = req.query.pno;
     var ps = req.query.pageSize;
-    console.log(pno);
+    // console.log(pno);
     if (!pno) {
         pno = 1;
     } if (!ps) {
@@ -117,7 +117,7 @@ server.get("/cao", (req, res) => {
 server.get("/md", (req, res) => {
     var pnoa = req.query.pno;
     var psa = req.query.pageSize;
-    console.log(psa);
+    // console.log(psa);
 
     if (!pnoa) {
         pnoa = 1;
@@ -143,7 +143,7 @@ server.get("/md", (req, res) => {
 server.get("/xinpin", (req, res) => {
     var pnox = req.query.pno;
     var psx = req.query.pageSize;
-    console.log(psx);
+    // console.log(psx);
 
     if (!pnox) {
         pnox = 1;
@@ -170,8 +170,8 @@ server.get("/xinpin", (req, res) => {
 server.get("/prolist", (req, res) => {
     var pnopro = req.query.pno;
     var pspro = req.query.pageSize;
-    console.log(pnopro);
-    console.log(pspro);
+    // console.log(pnopro);
+    // console.log(pspro);
     if (!pnopro) {
         pnopro = 1;
     } if (!pspro) {
@@ -222,6 +222,7 @@ server.get("/addcart", (req, res) => {
     var price = req.query.price;
     var title = req.query.title;
     var imgurl=req.query.imgurl;
+    console.log(lid, imgurl)
     // console.log(id)
     // console.log(lid)
     // console.log(price)
@@ -233,9 +234,13 @@ server.get("/addcart", (req, res) => {
     sql += " where uid=? and lid=?";
     pool.query(sql, [uid, lid], (err, result) => {
         if (err) throw err;
-        if (result.length == 0) {
+        console.log(result.length)
+        if (result.length <= 0) {
+            console.log("123123213====12321321=======123213213")
+
             var sql = `INSERT INTO xinpin_cart VALUES(null,${lid},${price},1,'${title}',${uid},'${imgurl}')`;
         } else {
+            console.log("123123213===========123213213")
             var sql = `UPDATE xinpin_cart SET count=count+1 WHERE uid=${uid} AND lid=${lid}`;
         }
         //7.执行sql获取返回结果
