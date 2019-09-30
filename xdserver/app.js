@@ -221,6 +221,7 @@ server.get("/addcart", (req, res) => {
     var lid = parseInt(req.query.lid);
     var price = req.query.price;
     var title = req.query.title;
+    var count=parseInt(req.query.count);
     var imgurl=req.query.imgurl;
     console.log(lid, imgurl)
     // console.log(id)
@@ -235,12 +236,9 @@ server.get("/addcart", (req, res) => {
     pool.query(sql, [uid, lid], (err, result) => {
         if (err) throw err;
         console.log(result.length)
-        if (result.length <= 0) {
-            console.log("123123213====12321321=======123213213")
-
-            var sql = `INSERT INTO xinpin_cart VALUES(null,${lid},${price},1,'${title}',${uid},'${imgurl}')`;
+        if (result.length <= 0) {           
+            var sql = `INSERT INTO xinpin_cart VALUES(null,${lid},${price},'1','${title}',${uid},'${imgurl}')`;
         } else {
-            console.log("123123213===========123213213")
             var sql = `UPDATE xinpin_cart SET count=count+1 WHERE uid=${uid} AND lid=${lid}`;
         }
         //7.执行sql获取返回结果
