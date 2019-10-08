@@ -141,22 +141,24 @@ CREATE TABLE shangpin_list(
    title VARCHAR(40),
    details VARCHAR(40),
    img_url VARCHAR(90),
+   img_lo  VARCHAR(128),
+   img_big  VARCHAR(128),
    price DECIMAL(10,2)
 );
-INSERT INTO shangpin_list VALUES(null,'Apple iPhone熊猫耳机','输入蛋券sw07,满1000-30元','./img/productlist/1.jpg','5199.52');
-INSERT INTO shangpin_list VALUES(null,'Apple iPhone廉江热水库','输入蛋券sw07,满1000-30元','./img/productlist/2.jpg','6159.55');
-INSERT INTO shangpin_list VALUES(null,'Apple iPhone熊猫耳机','输入蛋券sw07,满100-30元','./img/productlist/3.jpg','6189.52');
-INSERT INTO shangpin_list VALUES(null,'Apple iPhone廉江热水库','输入蛋券sw07,满1000-30元','./img/productlist/4.jpg','6159.54');
-INSERT INTO shangpin_list VALUES(null,'Apple Apple iPhone廉江电饭煲','输入蛋券sw07,满1000-30元','./img/productlist/5.jpg','6499.59');
-INSERT INTO shangpin_list VALUES(null,'Apple iPhone熊猫耳机','输入蛋券sw07,满1000-30元','./img/productlist/6.jpg','6179.42');
-INSERT INTO shangpin_list VALUES(null,'Apple iPhone廉江热水库','输入蛋券sw07,满9000-30元','./img/productlist/7.jpg','6129.62');
-INSERT INTO shangpin_list VALUES(null,'Apple iPhone熊猫耳机','输入蛋券sw07,满1000-30元','./img/productlist/8.jpg','6179.42');
-INSERT INTO shangpin_list VALUES(null,'Apple Apple iPhone廉江电饭煲','输入蛋券sw07,满1000-30元','./img/productlist/9.jpg','5199.62');
-INSERT INTO shangpin_list VALUES(null,'Apple iPhone廉江热水库','输入蛋券sw07,满1000-30元','./img/productlist/10.jpg','4199.52');
-INSERT INTO shangpin_list VALUES(null,'Apple iPhone熊猫耳机','输入蛋券sw007,满1000-30元','./img/productlist/11.jpg','9199.42');
-INSERT INTO shangpin_list VALUES(null,'Apple Apple iPhone廉江电饭煲','输入蛋券sw07,满1000-30元','./img/productlist/12.jpg','61449.12');
-INSERT INTO shangpin_list VALUES(null,'Apple iPhone熊猫耳机','输入蛋券sw07,满1000-30元','./img/productlist/13.jpg','5199.82');
-INSERT INTO shangpin_list VALUES(null,'Apple iPhone熊猫耳机','输入蛋券sw07,满1500-30元','./img/productlist/14.jpg','6889.99');
+INSERT INTO shangpin_list VALUES(null,'Apple iPhone熊猫耳机','输入蛋券sw07,满1000-30元','./img/productlist/1.jpg','./img/xinpinsha_lo/45.jpg','./img/xinpinsha_big/45.jpg','5199.52');
+INSERT INTO shangpin_list VALUES(null,'Apple iPhone廉江热水库','输入蛋券sw07,满1000-30元','./img/productlist/2.jpg','./img/xinpinsha_lo/46.jpg','./img/xinpinsha_big/46.jpg','6159.55');
+INSERT INTO shangpin_list VALUES(null,'Apple iPhone熊猫耳机','输入蛋券sw07,满100-30元','./img/productlist/3.jpg','./img/xinpinsha_lo/47.jpg','./img/xinpinsha_big/47.jpg','6189.52');
+INSERT INTO shangpin_list VALUES(null,'Apple iPhone廉江热水库','输入蛋券sw07,满1000-30元','./img/productlist/4.jpg','./img/xinpinsha_lo/48.jpg','./img/xinpinsha_big/48.jpg','6159.54');
+INSERT INTO shangpin_list VALUES(null,'Apple Apple iPhone廉江电饭煲','输入蛋券sw07,满1000-30元','./img/productlist/5.jpg','./img/xinpinsha_lo/49.jpg','./img/xinpinsha_big/49.jpg','6499.59');
+INSERT INTO shangpin_list VALUES(null,'Apple iPhone熊猫耳机','输入蛋券sw07,满1000-30元','./img/productlist/6.jpg','./img/xinpinsha_lo/50.jpg','./img/xinpinsha_big/50.jpg','6179.42');
+INSERT INTO shangpin_list VALUES(null,'Apple iPhone廉江热水库','输入蛋券sw07,满9000-30元','./img/productlist/7.jpg','./img/xinpinsha_lo/51.jpg','./img/xinpinsha_big/51.jpg','6129.62');
+INSERT INTO shangpin_list VALUES(null,'Apple iPhone熊猫耳机','输入蛋券sw07,满1000-30元','./img/productlist/8.jpg','./img/xinpinsha_lo/52.jpg','./img/xinpinsha_big/52.jpg','6179.42');
+INSERT INTO shangpin_list VALUES(null,'Apple Apple iPhone廉江电饭煲','输入蛋券sw07,满1000-30元','./img/productlist/9.jpg','./img/xinpinsha_lo/53.jpg','./img/xinpinsha_big/53.jpg','5199.62');
+INSERT INTO shangpin_list VALUES(null,'Apple iPhone廉江热水库','输入蛋券sw07,满1000-30元','./img/productlist/10.jpg','./img/xinpinsha_lo/54.jpg','./img/xinpinsha_big/54.jpg','4199.52');
+INSERT INTO shangpin_list VALUES(null,'Apple iPhone熊猫耳机','输入蛋券sw007,满1000-30元','./img/productlist/11.jpg','./img/xinpinsha_lo/55.jpg','./img/xinpinsha_big/55.jpg','9199.42');
+INSERT INTO shangpin_list VALUES(null,'Apple Apple iPhone廉江电饭煲','输入蛋券sw07,满1000-30元','./img/productlist/12.jpg','./img/xinpinsha_lo/56.jpg','./img/xinpinsha_big/56.jpg','61449.12');
+INSERT INTO shangpin_list VALUES(null,'Apple iPhone熊猫耳机','输入蛋券sw07,满1000-30元','./img/productlist/13.jpg','./img/xinpinsha_lo/57.jpg','./img/xinpinsha_big/57.jpg','5199.82');
+INSERT INTO shangpin_list VALUES(null,'Apple iPhone熊猫耳机','输入蛋券sw07,满1500-30元','./img/productlist/14.jpg','./img/xinpinsha_lo/58.jpg','./img/xinpinsha_big/59.jpg','6889.99');
 
 
 

@@ -192,7 +192,7 @@ server.get("/prolist", (req, res) => {
         })
     })
 })
-//
+//首页商品
 server.get("/detail", (req, res) => {
     var id = req.query.id;
     var sql = "select * from xinpinshashi  where id=?"
@@ -201,14 +201,22 @@ server.get("/detail", (req, res) => {
         res.send({ code: 1, msg: "查询成功", data: result })
     })
 })
-// 
-server.get("/deail2", (req, res) => {
-    var sql = "select id,title,price,img_url from xinpinshashi ";
-    pool.query(sql, (err, result) => {
+// 分类商品
+server.get("/detail2", (req, res) => {
+    var id = req.query.id;
+    var sql = "select * from shangpin_list  where id=?"
+    pool.query(sql, [id], (err, result) => {
         if (err) throw err;
         res.send({ code: 1, msg: "查询成功", data: result })
     })
 })
+// server.get("/deail2", (req, res) => {
+//     var sql = "select id,title,price,img_url from xinpinshashi ";
+//     pool.query(sql, (err, result) => {
+//         if (err) throw err;
+//         res.send({ code: 1, msg: "查询成功", data: result })
+//     })
+// })
 // 购物车
 server.get("/addcart", (req, res) => {
     var uid = req.session.uid;
@@ -264,7 +272,7 @@ server.get("/carts", (req, res) => {
         res.send({ code: -1, msg: "请登录" });
         return;
     } else {
-        var sql = "SELECT id ,title,price,imgurl FROM";
+        var sql = "SELECT id ,title,price,imgurl,count FROM";
         sql += " xinpin_cart WHERE uid=?";
         pool.query(sql, [uid], (err, result) => {
             if (err) throw err;
