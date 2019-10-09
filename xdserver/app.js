@@ -231,13 +231,7 @@ server.get("/addcart", (req, res) => {
     var title = req.query.title;
     var count=parseInt(req.query.count);
     var imgurl=req.query.imgurl;
-    console.log(lid, imgurl)
-    // console.log(id)
-    // console.log(lid)
-    // console.log(price)
-    // console.log(title)
-    // console.log(imgurl)
-
+    // console.log(lid, imgurl)
     //    创建查询sql:当前用户是否购买过此商品
     var sql = "select id from xinpin_cart";
     sql += " where uid=? and lid=?";
@@ -284,3 +278,53 @@ server.get("/carts", (req, res) => {
 
 
 
+
+server.get("/delItem",(req,res)=>{
+    //0:判断是否登录
+    var uid = req.session.uid;
+    if(!uid){
+       res.send({code:-2,msg:"请登录"});
+       return;
+    } 
+    //1：获取客户端发送数据id
+    var id = req.query.id;
+    console.log(id);
+    //2: 创建sql语句
+    var sql = "DELETE FROM xinpin_cart WHERE id=?";
+    //3: 执行sql语句
+    pool.query(sql,[id],(err,result)=>{
+       if(err)throw err;
+       //4: 获取服务器获取结果判断删除是否成功
+       console.log(result);
+       if(result.affectedRows>0){
+   
+         res.send({code:1,msg:"删除成功"});
+       }else{
+         res.send({code:-1,msg:"删除失败"});
+       }
+    })
+   })
+   //功能六:删除购物车中多个 商品
+   server.get("/delItems",(req,res)=>{
+       //0.判断用户是否登录
+       var uid=req.session.uid;
+       if(!uid){
+           res.send({code:-2,msg:"请登录"});
+           return;
+       }
+       //1.获取参数id=1,2,3
+       var id=req.query.id;
+       //2.创建sql语句
+       var sql=`DELETE FROM xinpin_cart WHERE id IN (${id})`;
+       //3.执行sql语句
+       pool.query(sql,(err,result)=>{
+           if(err) throw err;
+           if(result.affectedRows>0){
+               res.send({code:1,msg:"删除成功"})
+           }else{
+               res.send({code:0,msg:"删除失败"})
+           }
+       })
+   })
+   //4.获取服务器返回结果
+   //5将结果返回客户端
