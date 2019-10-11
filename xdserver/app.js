@@ -192,6 +192,65 @@ server.get("/prolist", (req, res) => {
         })
     })
 })
+
+ 
+// 分类后的商品列表 从小到大
+server.get("/prolist1", (req, res) => {
+    var pnopro = req.query.pno;
+    var pspro = req.query.pageSize;
+    // console.log(pnopro);
+    // console.log(pspro);
+    if (!pnopro) {
+        pnopro = 1;
+    } if (!pspro) {
+        pspro = 10;
+    }
+    //创建sql语句
+    var sql = "SELECT id,img_url,title,details,price";
+    sql += " FROM shangpin_list";
+    sql += " ORDER BY price ASC LIMIT ?,?";
+    var offset = (pnopro - 1) * pspro;
+    pspro = parseInt(pspro);
+    //发送sql语句
+    pool.query(sql, [offset, pspro], (err, result) => {
+        if (err) throw err;
+        res.send({
+            code: 1, msg: "查询成功",
+            data: result
+        })
+    })
+})
+ // 分类后的商品列表 从大到大
+server.get("/prolist2", (req, res) => {
+    var pnopro = req.query.pno;
+    var pspro = req.query.pageSize;
+    // console.log(pnopro);
+    // console.log(pspro);
+    if (!pnopro) {
+        pnopro = 1;
+    } if (!pspro) {
+        pspro = 10;
+    }
+    //创建sql语句
+    var sql = "SELECT id,img_url,title,details,price";
+    sql += " FROM shangpin_list";
+    sql += " ORDER BY price desc LIMIT ?,?";
+    var offset = (pnopro - 1) * pspro;
+    pspro = parseInt(pspro);
+    //发送sql语句
+    pool.query(sql, [offset, pspro], (err, result) => {
+        if (err) throw err;
+        res.send({
+            code: 1, msg: "查询成功",
+            data: result
+        })
+    })
+})
+
+
+
+
+
 //首页商品
 server.get("/detail", (req, res) => {
     var id = req.query.id;
@@ -276,7 +335,14 @@ server.get("/carts", (req, res) => {
     }
 })
 
-
+// server.get("/count",(req,res)=>{
+//     var count=req.body.count;
+//     var sql="update xinpin_cart set count where id=?";
+//     pool.query(sql,[count],(err,result)=>{
+//         if(err) throw err;
+//         console.log(result);
+//     })
+// })
 
 
 server.get("/delItem",(req,res)=>{
