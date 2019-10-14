@@ -14,11 +14,13 @@ id INT PRIMARY KEY AUTO_INCREMENT,
 uname VARCHAR(50),
 upwd VARCHAR(32),
 email VARCHAR(64),
-phone VARCHAR(16)
+phone VARCHAR(16),
+imgn VARCHAR(128),
 );
 #添加测试数据 
-INSERT INTO xd_login VALUES(null,'pang',md5('123'),'pang@qq.com','13812345678');
-INSERT INTO xd_login VALUES(null,'tom',md5('123'),'tom@qq.com','13888888888');
+INSERT INTO xd_login VALUES(null,'pang',md5('123'),'pang@qq.com','1','touxiang/1.jpg');
+INSERT INTO xd_login VALUES(null,'tom',md5('123'),'tom@qq.com','13888888888','touxiang/2.jpg');
+INSERT INTO xd_login VALUES(null,'xiaoyan',md5('123'),'tom@qq.com','2','touxiang/3.jpg');
 
 ########################################
 #创建表xd_login

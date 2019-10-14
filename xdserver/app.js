@@ -81,11 +81,58 @@ server.get("/Login", (req, res) => {
             //获取当前登录用户id
             var id = result[0].id;
             req.session.uid = id;
+            console.log('00000'+id);
             res.send({ code: 1, msg: "登录成功" })
         }
     })
 })
+server.get("/log",(req,res)=>{
+    // 先判断有没有传来退出登录的参数，没有说明是请求用户名，有就退出登录
+    var id=req.session.uid;
+    // console.log(out); 
+    // var id=req.session.uid;
+    console.log('22222222'+id);
+    if(!id){
+            res.send({code:-1,msg:"请登录"});
+            return;
+          }
 
+        // 创建sql语句
+        var sql=`SELECT uname,imgn from xd_login WHERE id = ${id} `;
+        pool.query(sql,[id],(err,result)=>{
+            if(err) throw err;
+            res.send({code:1,meg:"查询成功",data:result});
+        })
+    
+})
+
+// 退出登录
+server.get("/LoginA",(req,res)=>{
+    // 先判断有没有传来退出登录的参数，没有说明是请求用户名，有就退出登录
+    var out=req.query.out; 
+    // console.log(out); 
+    // var id=req.session.uid;
+    // console.log('22222222'+id);
+    if(!out){
+        // 获取uid 并且判断如果没有请求登录
+        var id=req.session.uid;
+        console.log('22222222'+id);
+        if(!id){
+            res.send({code:-1,msg:"请登录"});
+            return;
+          }
+        // 创建sql语句
+        var sql="SELECT uname from xd_login WHERE uid = ? ";
+        pool.query(sql,[uid],(err,result)=>{
+            if(err) throw err;
+            res.send({code:1,meg:"查询成功",data:result});
+        })
+    }else{
+        // 退出登录
+        req.session.uid ='';
+        res.send({code:-1,meg:"退出成功"});
+    }
+})
 //功能一:获取数据库的数据
 server.get("/cao", (req, res) => {
     var pno = req.query.pno;
@@ -394,3 +441,5 @@ server.get("/delItem",(req,res)=>{
    })
    //4.获取服务器返回结果
    //5将结果返回客户端
+
+
