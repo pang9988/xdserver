@@ -16,14 +16,15 @@ upwd VARCHAR(32),
 email VARCHAR(64),
 phone VARCHAR(16),
 imgn VARCHAR(128),
+sex BOOLEAN  # 1:男  0:女
 );
 #添加测试数据 
-INSERT INTO xd_login VALUES(null,'pang',md5('123'),'pang@qq.com','1','touxiang/1.jpg');
-INSERT INTO xd_login VALUES(null,'tom',md5('123'),'tom@qq.com','13888888888','touxiang/2.jpg');
-INSERT INTO xd_login VALUES(null,'xiaoyan',md5('123'),'tom@qq.com','2','touxiang/3.jpg');
+INSERT INTO xd_login VALUES(null,'pang',md5('123'),'pang@qq.com','1','touxiang/1.jpg',0);
+INSERT INTO xd_login VALUES(null,'tom',md5('123'),'tom@qq.com','13888888888','touxiang/2.jpg',1);
+INSERT INTO xd_login VALUES(null,'xiaoyan',md5('123'),'tom@qq.com','2','touxiang/3.jpg',0);
 
 ########################################
-#创建表xd_login
+#创建表
 #Drop table IF EXISTS xd_laptop
 CREATE TABLE xd_laptop(
 id INT PRIMARY KEY AUTO_INCREMENT,

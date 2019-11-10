@@ -133,6 +133,17 @@ server.get("/LoginA",(req,res)=>{
         res.send({code:-1,meg:"退出成功"});
     }
 })
+// 注册
+// server.get("/regstat",(req,res)=>{
+// 	var obj=req.query.obj; 
+// 	var sql="INSERT INTO xd_login SET ?";
+// 	pool.query(sql,[obj],(err,result)=>{
+// 		if(err) throw err;
+// 		if(result.affectedRows>0){
+// 			res.send({code:1,msg:"注册成功"})  
+// 		}else("0");
+// 	});
+// });
 //功能一:获取数据库的数据
 server.get("/cao", (req, res) => {
     var pno = req.query.pno;
